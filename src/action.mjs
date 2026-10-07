@@ -1,9 +1,12 @@
 import defaults from './defaults.json' with { type: 'json' }
 import { marker, renderReport, summarize } from './report.mjs'
 
-export async function updateComment({ github, context, core, config = '' }) {
+export async function updateComment({ github, context, core, config = '', format = 'markdown', imageToken = '' }) {
   const event = context.payload.pull_request
   if (!event) throw new Error('Run PR diff stats on a pull_request_target or pull_request event.')
+  if (!['markdown', 'image'].includes(format)) throw new Error('Set format to markdown or image.')
+  if (format === 'image' && !imageToken) throw new Error('Set image-token to a PAT to enable image reports.')
+  if (imageToken) core.setSecret(imageToken)
 
   const pull = { ...context.repo, pull_number: context.issue.number }
   const issue = { ...context.repo, issue_number: context.issue.number }
@@ -24,8 +27,15 @@ export async function updateComment({ github, context, core, config = '' }) {
   }
 
   const groups = await loadGroups({ github, repo: context.repo, ref: pr.base.sha, config })
-  const body = renderReport(summarize(files, groups), pr.head.sha)
+  const summary = summarize(files, groups)
   const comment = comments.find((item) => item.user?.login === 'github-actions[bot]' && item.body?.startsWith(marker))
+  let body
+  if (format === 'image') {
+    const { prepareImageReport } = await import('./image-report.mjs')
+    body = await prepareImageReport({ summary, sha: pr.head.sha, context, comment, token: imageToken })
+  } else {
+    body = renderReport(summary, pr.head.sha)
+  }
   if (comment?.body === body) return
 
   const { data: latest } = await github.rest.pulls.get(pull)

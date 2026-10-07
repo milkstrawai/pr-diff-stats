@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(data:font/woff2;base64,FONT_DATA) format('woff2');
+}
+
+svg {
+  color-scheme: light;
+}
+
+text {
+  font-family: 'Patrick Hand', var(--font-sans);
+  font-size: var(--text-base);
+  fill: var(--color-text-base);
+  font-feature-settings:
+    'tnum' 1,
+    'cv02' 1,
+    'cv03' 1,
+    'cv04' 1,
+    'cv11' 1;
+}
+
+.paper {
+  fill: var(--color-bg-warning-tertiary);
+}
+
+.title {
+  font-size: var(--text-display);
+}
+
+.group {
+  font-size: var(--text-lg);
+}
+
+.label {
+  font-weight: var(--font-weight-normal);
+}
+
+.marker {
+  fill: var(--color-bg-warning-secondary);
+}
+
+.muted {
+  fill: var(--color-text-base-secondary);
+}
+
+.added {
+  fill: var(--color-text-success-secondary);
+}
+
+.deleted {
+  fill: var(--color-text-danger-secondary);
+}
+
+.add-bar {
+  fill: var(--color-bg-success);
+}
+
+.delete-bar {
+  fill: var(--color-bg-danger);
+}
+
+.line {
+  stroke: var(--color-border-base-secondary);
+  stroke-width: 1;
+}

@@ -1,6 +1,6 @@
 # PR diff stats
 
-One Markdown comment showing a pull request's changed files and lines. The comment updates after each push.
+One comment showing a pull request's changed files and lines, updated after each push. Markdown is the default; illustrated SVG reports are optional.
 
 | Group     | Files |    Added | Deleted | Changed |
 | :-------- | ----: | -------: | ------: | ------: |
@@ -35,9 +35,26 @@ jobs:
       - uses: milkstrawai/pr-diff-stats@v1
 ```
 
-Uses the automatic `GITHUB_TOKEN`. No checkout, dependency installation, image hosting, or extra secrets are needed. To pin a release, use its full commit SHA instead of `v1`.
+The default Markdown report uses the automatic `GITHUB_TOKEN` and needs no extra secrets. Neither format requires a checkout or dependency installation. To pin a release, use its full commit SHA instead of `v1`.
 
 While this repository is private, it is available to private repositories in `milkstrawai` through [organization action sharing](https://docs.github.com/en/actions/how-tos/reuse-automations/share-with-your-organization). Public repositories can use it after this repository becomes public.
+
+## Optional image reports
+
+```yaml
+- uses: milkstrawai/pr-diff-stats@v1
+  with:
+    format: image
+    image-token: ${{ secrets.PR_DIFF_IMAGE_TOKEN }}
+```
+
+Image reports use a PAT to upload the SVG as a GitHub attachment. See the short [PAT setup guide](docs/image-reports.md).
+
+| Input         | Default    | Purpose                                          |
+| :------------ | :--------- | :----------------------------------------------- |
+| `format`      | `markdown` | Choose `markdown` or `image`                     |
+| `image-token` | Empty      | PAT for image uploads; required only for `image` |
+| `config`      | Empty      | Optional JSON group file in the PR base commit   |
 
 ## Default groups
 
@@ -79,3 +96,5 @@ The optional `config` input replaces the defaults with your JSON groups. Nested 
 See [testing and releases](docs/development.md).
 
 Licensed under [MIT](LICENSE).
+
+The bundled Patrick Hand font uses the [SIL Open Font License](src/assets/OFL.txt).

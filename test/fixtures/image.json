@@ -1,0 +1,8 @@
+{
+  "repository": { "id": 42 },
+  "token": "fixture-image-token",
+  "url": "https://github.com/user-attachments/assets/00000000-0000-0000-0000-000000000042",
+  "labels": [{ "name": "Fixtures & <Support>", "fallback": true }],
+  "file": [{ "filename": "logo.png", "additions": 0, "deletions": 0 }],
+  "parallelPrNumbers": [41, 42, 43]
+}

@@ -1,5 +1,5 @@
 name: PR diff stats
-description: Keep one Markdown PR comment with added and deleted lines grouped by file paths.
+description: Keep one PR diff comment, using Markdown by default or an optional illustrated image.
 author: MilkStraw
 
 branding:
@@ -11,6 +11,14 @@ inputs:
     description: Optional path to a JSON group configuration in the PR base commit.
     required: false
     default: ""
+  format:
+    description: Report format, markdown or image.
+    required: false
+    default: markdown
+  image-token:
+    description: PAT with Contents read and write access to the consumer repository. Required for image format.
+    required: false
+    default: ""
 
 runs:
   using: composite
@@ -20,10 +28,17 @@ runs:
       env:
         PR_DIFF_ACTION_PATH: ${{ github.action_path }}
         PR_DIFF_CONFIG: ${{ inputs.config }}
+        PR_DIFF_FORMAT: ${{ inputs.format }}
+        PR_DIFF_IMAGE_TOKEN: ${{ inputs.image-token }}
       with:
         script: |
           const { join } = await import('node:path')
           const { pathToFileURL } = await import('node:url')
           const entry = pathToFileURL(join(process.env.PR_DIFF_ACTION_PATH, 'src/action.mjs'))
           const { updateComment } = await import(entry.href)
-          await updateComment({ github, context, core, config: process.env.PR_DIFF_CONFIG })
+          await updateComment({
+            github, context, core,
+            config: process.env.PR_DIFF_CONFIG,
+            format: process.env.PR_DIFF_FORMAT,
+            imageToken: process.env.PR_DIFF_IMAGE_TOKEN,
+          })

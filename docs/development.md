@@ -8,13 +8,15 @@ mise ci
 npm test
 ```
 
-| Path                | Purpose                                                          |
-| :------------------ | :--------------------------------------------------------------- |
-| `action.yml`        | Composite action entry point using `actions/github-script`       |
-| `src/action.mjs`    | Read GitHub data and update the bot comment                      |
-| `src/report.mjs`    | Classify files and render Markdown                               |
-| `src/defaults.json` | Default file groups                                              |
-| `test/`             | Node tests and fixtures, including migrated Rails grouping cases |
+| Path                   | Purpose                                                          |
+| :--------------------- | :--------------------------------------------------------------- |
+| `action.yml`           | Composite action entry point using `actions/github-script`       |
+| `src/action.mjs`       | Read GitHub data and update the bot comment                      |
+| `src/report.mjs`       | Classify files and render Markdown                               |
+| `src/image.mjs`        | Render illustrated SVG reports with bundled styles and font      |
+| `src/image-report.mjs` | Upload attachments and build image comments                      |
+| `src/defaults.json`    | Default file groups                                              |
+| `test/`                | Node tests and fixtures, including migrated Rails grouping cases |
 
 ## Releases
 
