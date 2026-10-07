@@ -1,0 +1,10 @@
+[tools]
+node = "24.19.0"
+
+[tasks.test]
+description = "Test classification, Markdown reports, and GitHub publishing"
+run = "node --test test/*.test.mjs"
+
+[tasks.ci]
+description = "Run all action checks"
+depends = ["test"]

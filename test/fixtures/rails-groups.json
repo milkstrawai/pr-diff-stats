@@ -1,0 +1,201 @@
+[
+  {
+    "name": "Production",
+    "exclude": ["**/*.md"],
+    "children": [
+      {
+        "name": "Frontend",
+        "match": ["app/javascript/**", "app/assets/**", "app/views/**", "public/**"],
+        "children": [
+          {
+            "name": "Generated",
+            "match": ["app/javascript/routes/**", "app/javascript/types/serializers/**"]
+          },
+          {
+            "name": "Components",
+            "match": ["app/javascript/components/**"]
+          },
+          {
+            "name": "Pages",
+            "match": ["app/javascript/pages/**"]
+          },
+          {
+            "name": "Styles & Assets",
+            "match": ["app/javascript/styles/**", "app/javascript/**/*.css", "app/assets/**"]
+          },
+          {
+            "name": "Templates",
+            "match": ["app/views/**"]
+          },
+          {
+            "name": "Other frontend",
+            "fallback": true
+          }
+        ]
+      },
+      {
+        "name": "Backend",
+        "match": ["app/**", "lib/**", "tools/source_dockerfile_validator/**/*.go"],
+        "exclude": ["lib/tasks/**", "**/*_test.go"]
+      }
+    ]
+  },
+  {
+    "name": "DB",
+    "match": ["db/**"],
+    "children": [
+      {
+        "name": "Migrations",
+        "match": ["db/migrate/**", "db/*_migrate/**"]
+      },
+      {
+        "name": "Schemas",
+        "match": ["db/*schema.rb"]
+      },
+      {
+        "name": "Seeds",
+        "match": ["db/seeds.rb", "db/seeds/**"]
+      },
+      {
+        "name": "Other database",
+        "fallback": true
+      }
+    ]
+  },
+  {
+    "name": "Infra",
+    "match": ["infra/**"],
+    "children": [
+      {
+        "name": "Tests",
+        "match": ["infra/**/*.tftest.hcl", "infra/**/tests/**"]
+      },
+      {
+        "name": "Definitions",
+        "fallback": true
+      }
+    ]
+  },
+  {
+    "name": "Tests",
+    "match": [
+      "test/**",
+      "tools/source_dockerfile_validator/**/*_test.go",
+      "tools/source_dockerfile_validator/testdata/**"
+    ],
+    "children": [
+      {
+        "name": "Fixtures & Support",
+        "match": [
+          "test/fixtures/**",
+          "test/support/**",
+          "test/test_helper.rb",
+          "test/javascript/setup.ts",
+          "test/javascript/fixtures.ts",
+          "tools/source_dockerfile_validator/testdata/**"
+        ]
+      },
+      {
+        "name": "Tooling",
+        "match": ["test/javascript/pr-diff-stats.test.js"]
+      },
+      {
+        "name": "Frontend",
+        "match": ["test/javascript/**"]
+      },
+      {
+        "name": "Backend",
+        "fallback": true
+      }
+    ]
+  },
+  {
+    "name": "Docs",
+    "children": [
+      {
+        "name": "Agent Instructions",
+        "match": ["**/AGENTS.md", "**/CLAUDE.md"]
+      },
+      {
+        "name": "Documentation",
+        "match": ["mds/**", "docs/**", "**/*.md", ".github/**/*.md"]
+      }
+    ]
+  },
+  {
+    "name": "Config",
+    "children": [
+      {
+        "name": "Application",
+        "match": ["config/**", "config.ru"]
+      },
+      {
+        "name": "Frontend & Build",
+        "match": [
+          "vite.config.*",
+          "tsconfig*.json",
+          "pnpm-workspace.yaml",
+          "mise.toml",
+          ".tool-versions",
+          "Dockerfile",
+          "dev-docker-compose.yml",
+          "Procfile*",
+          ".dockerignore",
+          ".gitignore",
+          ".gitattributes",
+          ".vscode/**",
+          ".zed/**",
+          ".kamal/**"
+        ]
+      },
+      {
+        "name": "Quality",
+        "match": [
+          ".rubocop*.yml",
+          ".ox*.json",
+          ".active_record_doctor.rb",
+          "vitest.config.*",
+          ".github/dependabot.yml",
+          ".github/pr-diff-groups.json"
+        ]
+      },
+      {
+        "name": "Dependencies",
+        "children": [
+          {
+            "name": "Manifests",
+            "match": ["Gemfile", "package.json", "**/go.mod"]
+          },
+          {
+            "name": "Lockfiles",
+            "match": [
+              "Gemfile.lock",
+              "pnpm-lock.yaml",
+              "package-lock.json",
+              "yarn.lock",
+              "**/go.sum",
+              "infra/terraform/.terraform.lock.hcl"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tooling",
+    "children": [
+      {
+        "name": "CI",
+        "match": [".github/workflows/**", ".github/scripts/**"]
+      },
+      {
+        "name": "Scripts",
+        "match": ["bin/**", "script/**", "mise/tasks/**", "lib/tasks/**", "Rakefile", "tools/**"]
+      }
+    ]
+  },
+  {
+    "name": "Other",
+    "fallback": true
+  }
+]

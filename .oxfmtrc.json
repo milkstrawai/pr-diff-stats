@@ -1,0 +1,9 @@
+{
+  "printWidth": 120,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "sortImports": true,
+  "ignorePatterns": ["test/fixtures/report.md"],
+  "overrides": [{ "files": ["**/*.yml", "**/*.yaml"], "options": { "singleQuote": false } }]
+}

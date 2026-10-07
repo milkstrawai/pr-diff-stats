@@ -1,0 +1,14 @@
+{
+  "context": {
+    "repo": { "owner": "example", "repo": "project" },
+    "issue": { "number": 42 }
+  },
+  "pullRequest": {
+    "head": { "sha": "0123456789abcdef0123456789abcdef01234567" },
+    "base": { "sha": "abcdef0123456789abcdef0123456789abcdef01" },
+    "state": "open",
+    "changed_files": 10,
+    "body": "The contributor's description."
+  },
+  "configPath": ".github/pr-diff-groups.json"
+}

@@ -1,0 +1,131 @@
+{
+  "files": [
+    {
+      "filename": "app/javascript/components/user-avatar.vue",
+      "additions": 100,
+      "deletions": 20
+    },
+    {
+      "filename": "app/javascript/routes/index.ts",
+      "additions": 100,
+      "deletions": 20
+    },
+    {
+      "filename": "app/models/user.rb",
+      "additions": 80,
+      "deletions": 30
+    },
+    {
+      "filename": "app/controllers/users/sessions_controller.rb",
+      "additions": 40,
+      "deletions": 10
+    },
+    {
+      "filename": "test/javascript/user-avatar.test.ts",
+      "additions": 50,
+      "deletions": 5
+    },
+    {
+      "filename": "test/models/user_test.rb",
+      "additions": 100,
+      "deletions": 15
+    },
+    {
+      "filename": "mds/design-system.md",
+      "additions": 25,
+      "deletions": 5
+    },
+    {
+      "filename": "config/routes.rb",
+      "additions": 12,
+      "deletions": 3
+    },
+    {
+      "filename": "infra/terraform/tests/network.tftest.hcl",
+      "additions": 10,
+      "deletions": 2
+    },
+    {
+      "filename": "public/icon.png",
+      "additions": 0,
+      "deletions": 0
+    }
+  ],
+  "classification": [
+    ["app/javascript/types/serializers/User.ts", ["Production", "Frontend", "Generated"]],
+    ["app/javascript/types/globals.d.ts", ["Production", "Frontend", "Other frontend"]],
+    ["app/javascript/pages/users/sessions/new.vue", ["Production", "Frontend", "Pages"]],
+    ["app/javascript/entrypoints/application.css", ["Production", "Frontend", "Styles & Assets"]],
+    ["app/assets/images/logo.svg", ["Production", "Frontend", "Styles & Assets"]],
+    ["app/views/layouts/application.html.erb", ["Production", "Frontend", "Templates"]],
+    ["app/lib/infrastructure/kubernetes.rb", ["Production", "Backend"]],
+    ["lib/runtime.rb", ["Production", "Backend"]],
+    ["tools/source_dockerfile_validator/main.go", ["Production", "Backend"]],
+    ["tools/source_dockerfile_validator/main_test.go", ["Tests", "Backend"]],
+    ["tools/source_dockerfile_validator/testdata/valid.Dockerfile", ["Tests", "Fixtures & Support"]],
+    ["test/javascript/setup.ts", ["Tests", "Fixtures & Support"]],
+    ["test/javascript/pr-diff-stats.test.js", ["Tests", "Tooling"]],
+    ["test/fixtures/organizations.yml", ["Tests", "Fixtures & Support"]],
+    ["test/support/example.rb", ["Tests", "Fixtures & Support"]],
+    ["test/test_helper.rb", ["Tests", "Fixtures & Support"]],
+    ["db/migrate/20260907072028_devise_create_users.rb", ["DB", "Migrations"]],
+    ["db/cache_migrate/20260907072028_create_cache.rb", ["DB", "Migrations"]],
+    ["db/schema.rb", ["DB", "Schemas"]],
+    ["db/queue_schema.rb", ["DB", "Schemas"]],
+    ["db/seeds.rb", ["DB", "Seeds"]],
+    ["db/seeds/users.rb", ["DB", "Seeds"]],
+    ["infra/environments/development/eu-west-1.tfvars", ["Infra", "Definitions"]],
+    ["infra/kubernetes/routing/traefik.yml", ["Infra", "Definitions"]],
+    ["infra/terraform/tests/network.tftest.hcl", ["Infra", "Tests"]],
+    ["mds/examples/customer-build.yml", ["Docs", "Documentation"]],
+    ["README.md", ["Docs", "Documentation"]],
+    ["AGENTS.md", ["Docs", "Agent Instructions"]],
+    ["app/javascript/AGENTS.md", ["Docs", "Agent Instructions"]],
+    [".github/CONTRIBUTING.md", ["Docs", "Documentation"]],
+    ["config/deploy.production.yml", ["Config", "Application"]],
+    ["config/database.yml", ["Config", "Application"]],
+    ["config.ru", ["Config", "Application"]],
+    ["vite.config.ts", ["Config", "Frontend & Build"]],
+    ["tsconfig.app.json", ["Config", "Frontend & Build"]],
+    [".kamal/hooks/pre-deploy", ["Config", "Frontend & Build"]],
+    [".rubocop.yml", ["Config", "Quality"]],
+    [".oxlintrc.json", ["Config", "Quality"]],
+    ["vitest.config.ts", ["Config", "Quality"]],
+    [".github/pr-diff-groups.json", ["Config", "Quality"]],
+    ["Gemfile", ["Config", "Dependencies", "Manifests"]],
+    ["tools/source_dockerfile_validator/go.mod", ["Config", "Dependencies", "Manifests"]],
+    ["pnpm-lock.yaml", ["Config", "Dependencies", "Lockfiles"]],
+    ["infra/terraform/.terraform.lock.hcl", ["Config", "Dependencies", "Lockfiles"]],
+    ["tools/source_dockerfile_validator/go.sum", ["Config", "Dependencies", "Lockfiles"]],
+    [".github/workflows/pr-diff-stats.yml", ["Tooling", "CI"]],
+    [".github/scripts/pr-diff-stats.mjs", ["Tooling", "CI"]],
+    ["mise/tasks/dev", ["Tooling", "Scripts"]],
+    ["lib/tasks/oauth.rake", ["Tooling", "Scripts"]],
+    ["bin/build-source-dockerfile-validator", ["Tooling", "Scripts"]],
+    ["unknown/data.txt", ["Other"]]
+  ],
+  "sha": "0123456789abcdef0123456789abcdef01234567",
+  "comments": [
+    {
+      "id": 1,
+      "user": {
+        "login": "contributor"
+      },
+      "body": "<!-- pr-diff-stats -->\nA human comment."
+    },
+    {
+      "id": 2,
+      "user": {
+        "login": "github-actions[bot]"
+      },
+      "body": "An unrelated bot comment."
+    },
+    {
+      "id": 3,
+      "user": {
+        "login": "github-actions[bot]"
+      },
+      "body": "<!-- pr-diff-stats -->\nAn old report."
+    }
+  ]
+}

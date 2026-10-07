@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Docs",
+    "match": ["**/*.{md,mdx,rst,adoc}", "**/{docs,doc}/**", ".github/**/*.md", "**/{LICENSE,NOTICE,CHANGELOG}*"]
+  },
+  {
+    "name": "Tests",
+    "match": [
+      "**/{test,tests,spec,specs,__tests__,testdata,fixtures}/**",
+      "**/*.{test,spec}.*",
+      "**/{test_*,*_test,*_spec}.*",
+      "**/*{Test,Tests}.{java,kt,scala,cs}",
+      "**/*.tftest.hcl"
+    ]
+  },
+  {
+    "name": "Dependencies",
+    "match": [
+      "**/{package.json,package-lock.json,pnpm-lock.yaml,yarn.lock,bun.lock,bun.lockb}",
+      "**/{Gemfile,Gemfile.lock,*.gemspec,go.mod,go.sum,Cargo.toml,Cargo.lock}",
+      "**/{requirements*.txt,pyproject.toml,poetry.lock,uv.lock,Pipfile,Pipfile.lock,setup.py,setup.cfg}",
+      "**/{composer.json,composer.lock,pom.xml,build.gradle,build.gradle.kts,gradle.lockfile}",
+      "**/{*.csproj,*.fsproj,packages.lock.json,pubspec.yaml,pubspec.lock,mix.exs,mix.lock}"
+    ]
+  },
+  {
+    "name": "CI",
+    "match": ["**/.github/**", "**/.circleci/**", "**/.gitlab-ci.yml", "**/azure-pipelines*.yml", "**/Jenkinsfile"]
+  },
+  {
+    "name": "Infrastructure",
+    "match": [
+      "**/{infra,infrastructure,terraform,k8s,kubernetes,helm,charts}/**",
+      "**/*.{tf,tfvars,hcl}",
+      "**/{Dockerfile*,*.Dockerfile,compose*.yml,compose*.yaml,docker-compose*.yml,docker-compose*.yaml}"
+    ]
+  },
+  {
+    "name": "Config",
+    "match": [
+      "**/{config,.vscode,.idea}/**",
+      "**/*.config.*",
+      "**/*.{json,yml,yaml,toml,ini,cfg,conf,properties}",
+      "**/{.gitignore,.gitattributes,.editorconfig,.tool-versions,.nvmrc,.npmrc,.dockerignore}"
+    ]
+  },
+  {
+    "name": "Source",
+    "match": [
+      "**/{src,app,lib,packages,cmd,internal,pkg,public,assets,components,pages}/**",
+      "**/*.{rb,py,js,jsx,ts,tsx,mjs,cjs,vue,svelte,go,rs,java,kt,kts,scala,c,cc,cpp,h,hpp,cs,fs,ex,exs,erl,php,swift,dart,lua,r,R,sql,html,css,scss,sass,less,sh}"
+    ]
+  },
+  { "name": "Other", "fallback": true }
+]

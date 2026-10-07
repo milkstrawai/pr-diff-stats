@@ -1,0 +1,153 @@
+{
+  "classification": [
+    ["README.md", "Docs"],
+    ["docs/example.py", "Docs"],
+    ["packages/api/README.mdx", "Docs"],
+    [".github/CONTRIBUTING.md", "Docs"],
+    ["LICENSE", "Docs"],
+    ["tests/test_server.py", "Tests"],
+    ["test/models/user_test.rb", "Tests"],
+    ["spec/models/user_spec.rb", "Tests"],
+    ["src/components/button.test.tsx", "Tests"],
+    ["src/main_test.go", "Tests"],
+    ["src/test_server.py", "Tests"],
+    ["src/__tests__/button.ts", "Tests"],
+    ["src/UserTest.java", "Tests"],
+    ["src/UserTests.cs", "Tests"],
+    ["infra/network.tftest.hcl", "Tests"],
+    ["package.json", "Dependencies"],
+    ["packages/web/pnpm-lock.yaml", "Dependencies"],
+    ["Gemfile.lock", "Dependencies"],
+    ["backend/requirements-dev.txt", "Dependencies"],
+    ["backend/pyproject.toml", "Dependencies"],
+    ["uv.lock", "Dependencies"],
+    ["go.mod", "Dependencies"],
+    ["Cargo.lock", "Dependencies"],
+    ["pom.xml", "Dependencies"],
+    ["build.gradle.kts", "Dependencies"],
+    ["src/App.csproj", "Dependencies"],
+    ["pubspec.yaml", "Dependencies"],
+    ["composer.json", "Dependencies"],
+    ["mix.exs", "Dependencies"],
+    [".github/workflows/ci.yml", "CI"],
+    [".github/dependabot.yml", "CI"],
+    [".gitlab-ci.yml", "CI"],
+    [".circleci/config.yml", "CI"],
+    ["infra/main.tf", "Infrastructure"],
+    ["charts/app/values.yaml", "Infrastructure"],
+    ["Dockerfile", "Infrastructure"],
+    ["docker-compose.yml", "Infrastructure"],
+    ["config/database.yml", "Config"],
+    ["vite.config.ts", "Config"],
+    ["tsconfig.json", "Config"],
+    ["mise.toml", "Config"],
+    [".gitignore", "Config"],
+    [".vscode/settings.json", "Config"],
+    ["src/main.rs", "Source"],
+    ["app/models/user.rb", "Source"],
+    ["packages/web/src/button.vue", "Source"],
+    ["main.go", "Source"],
+    ["server.py", "Source"],
+    ["Program.cs", "Source"],
+    ["index.html", "Source"],
+    ["styles.css", "Source"],
+    ["public/logo.png", "Source"],
+    ["unknown/data.bin", "Other"]
+  ],
+  "unmatched": [
+    {
+      "filename": "unknown/data.bin",
+      "additions": 0,
+      "deletions": 0
+    }
+  ],
+  "labels": [
+    {
+      "name": "A | [link](https://example.com) <script> & **bold**\nnext",
+      "fallback": true
+    }
+  ],
+  "nested": [
+    {
+      "name": "Source",
+      "match": ["src/**"],
+      "exclude": ["**/*.md"],
+      "children": [
+        {
+          "name": "UI",
+          "match": ["src/ui/**"]
+        },
+        {
+          "name": "Other source",
+          "fallback": true
+        }
+      ]
+    }
+  ],
+  "nestedFiles": [
+    {
+      "filename": "src/ui/button.ts",
+      "additions": 12,
+      "deletions": 3
+    },
+    {
+      "filename": "src/main.ts",
+      "additions": 4,
+      "deletions": 1
+    },
+    {
+      "filename": "src/README.md",
+      "additions": 5,
+      "deletions": 0
+    }
+  ],
+  "invalidGroups": [
+    {
+      "name": "not an array",
+      "groups": {},
+      "error": "JSON array"
+    },
+    {
+      "name": "missing name",
+      "groups": [
+        {
+          "match": ["src/**"]
+        }
+      ],
+      "error": "nonempty name"
+    },
+    {
+      "name": "string patterns",
+      "groups": [
+        {
+          "name": "Source",
+          "match": "src/**"
+        }
+      ],
+      "error": "array of glob strings"
+    },
+    {
+      "name": "early fallback",
+      "groups": [
+        {
+          "name": "Other",
+          "fallback": true
+        },
+        {
+          "name": "Source",
+          "match": ["src/**"]
+        }
+      ],
+      "error": "fallback must be last"
+    },
+    {
+      "name": "empty rule",
+      "groups": [
+        {
+          "name": "Source"
+        }
+      ],
+      "error": "add match patterns"
+    }
+  ]
+}
