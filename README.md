@@ -41,6 +41,8 @@ While this repository is private, it is available to private repositories in `mi
 
 ## Optional image reports
 
+![Example image report: 5 files, 180 added lines, 40 deleted lines, and 220 changed lines.](docs/assets/example-report.svg)
+
 ```yaml
 - uses: milkstrawai/pr-diff-stats@v1
   with:
