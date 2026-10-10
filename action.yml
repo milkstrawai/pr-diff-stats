@@ -1,5 +1,5 @@
 name: PR diff stats
-description: Keep one PR diff comment, using Markdown by default or an optional illustrated image.
+description: "Keep one PR diff comment: Markdown by default, or an optional text chart or illustrated image."
 author: MilkStraw
 
 branding:
@@ -12,7 +12,7 @@ inputs:
     required: false
     default: ""
   format:
-    description: Report format, markdown or image.
+    description: "Report format: markdown, text-chart, or image."
     required: false
     default: markdown
   image-token:
