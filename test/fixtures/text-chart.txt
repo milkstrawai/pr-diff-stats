@@ -1,0 +1,42 @@
+<!-- pr-diff-stats -->
+```text
+PR scribbles          627 changed lines · 10 files
+                   +517 hired ━━   −110 retired ╍╍
+──────────────────────────────────────────────────
+Segment             Files  Added  Deleted  Changed
+Production              5   +320      −80      400
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╍╍╍╍╍╍╍╍╍
+├ Frontend              3   +200      −40      240
+│ ───────────────────────╌╌╌╌╌
+│ ├ Generated           1   +100      −20      120
+│ │ ───────────╌╌
+│ ├ Components          1   +100      −20      120
+│ │ ───────────╌╌
+│ └ Other frontend      1      0        0        0
+│
+└ Backend               2   +120      −40      160
+  ──────────────╌╌╌╌╌
+Infra                   1    +10       −2       12
+━╍
+└ Tests                 1    +10       −2       12
+  ─╌
+Tests                   2   +150      −20      170
+━━━━━━━━━━━━━━━━━╍╍
+├ Frontend              1    +50       −5       55
+│ ──────╌
+└ Backend               1   +100      −15      115
+  ───────────╌╌
+Docs                    1    +25       −5       30
+━━━╍
+└ Documentation         1    +25       −5       30
+  ───╌
+Config                  1    +12       −3       15
+━╍
+└ Application           1    +12       −3       15
+  ─╌
+──────────────────────────────────────────────────
+Parents include the kids. Each file counted once.
+Changed = added + deleted. Math: still serious.
+```
+
+Updated for `0123456`.

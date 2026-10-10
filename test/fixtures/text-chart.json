@@ -1,0 +1,13 @@
+{
+  "largeFiles": [
+    { "filename": "src/app.js", "additions": 12345, "deletions": 6789 },
+    { "filename": "README.md", "additions": 3, "deletions": 0 }
+  ],
+  "longNames": [
+    {
+      "name": "Everything that happens in this repository",
+      "children": [{ "name": "Including the deeply nested bits", "fallback": true }]
+    }
+  ],
+  "multiline": [{ "name": "Docs\nand\tguides", "fallback": true }]
+}
