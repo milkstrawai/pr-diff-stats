@@ -3,6 +3,7 @@ import { afterEach, beforeEach, mock, test } from 'node:test'
 
 import { updateComment } from '../src/action.mjs'
 import { renderReport, summarize } from '../src/report.mjs'
+import { renderTextChart } from '../src/text-chart.mjs'
 import fixture from './fixtures/github.json' with { type: 'json' }
 import image from './fixtures/image.json' with { type: 'json' }
 import railsGroups from './fixtures/rails-groups.json' with { type: 'json' }
@@ -79,8 +80,17 @@ test('requires an image token only for image mode', async () => {
   assert.equal(github.paginate.mock.callCount(), 0)
 })
 
+test('publishes a text chart without an image token', async () => {
+  await updateComment({ github, context, core, format: 'text-chart' })
+  assert.equal(
+    github.rest.issues.updateComment.mock.calls[0].arguments[0].body,
+    renderTextChart(summarize(rails.files), pr.head.sha),
+  )
+  assert.equal(upload.mock.callCount(), 0)
+})
+
 test('rejects an unsupported report format', async () => {
-  await assert.rejects(updateComment({ github, context, core, format: 'pdf' }), /markdown or image/)
+  await assert.rejects(updateComment({ github, context, core, format: 'pdf' }), /markdown, text-chart, or image/)
 })
 
 test('does not upload an unchanged image again', async () => {

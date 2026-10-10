@@ -1,10 +1,13 @@
 import defaults from './defaults.json' with { type: 'json' }
 import { marker, renderReport, summarize } from './report.mjs'
+import { renderTextChart } from './text-chart.mjs'
+
+const formats = ['markdown', 'text-chart', 'image']
 
 export async function updateComment({ github, context, core, config = '', format = 'markdown', imageToken = '' }) {
   const event = context.payload.pull_request
   if (!event) throw new Error('Run PR diff stats on a pull_request_target or pull_request event.')
-  if (!['markdown', 'image'].includes(format)) throw new Error('Set format to markdown or image.')
+  if (!formats.includes(format)) throw new Error('Set format to markdown, text-chart, or image.')
   if (format === 'image' && !imageToken) throw new Error('Set image-token to a PAT to enable image reports.')
   if (imageToken) core.setSecret(imageToken)
 
@@ -33,6 +36,8 @@ export async function updateComment({ github, context, core, config = '', format
   if (format === 'image') {
     const { prepareImageReport } = await import('./image-report.mjs')
     body = await prepareImageReport({ summary, sha: pr.head.sha, context, comment, token: imageToken })
+  } else if (format === 'text-chart') {
+    body = renderTextChart(summary, pr.head.sha)
   } else {
     body = renderReport(summary, pr.head.sha)
   }
