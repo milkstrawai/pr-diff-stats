@@ -2,7 +2,7 @@
 node = "24.19.0"
 
 [tasks.test]
-description = "Test classification, Markdown and image reports, and GitHub publishing"
+description = "Test classification, Markdown, text chart and image reports, and GitHub publishing"
 run = "node --test test/*.test.mjs"
 
 [tasks.ci]

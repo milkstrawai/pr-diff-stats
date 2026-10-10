@@ -1,6 +1,6 @@
 # PR diff stats
 
-One comment showing a pull request's changed files and lines, updated after each push. Markdown is the default; illustrated SVG reports are optional.
+One comment showing a pull request's changed files and lines, updated after each push. Markdown is the default; text charts and illustrated SVG reports are optional.
 
 | Group     | Files |    Added | Deleted | Changed |
 | :-------- | ----: | -------: | ------: | ------: |
@@ -35,9 +35,33 @@ jobs:
       - uses: milkstrawai/pr-diff-stats@v1
 ```
 
-The default Markdown report uses the automatic `GITHUB_TOKEN` and needs no extra secrets. Neither format requires a checkout or dependency installation. To pin a release, use its full commit SHA instead of `v1`.
+Markdown reports and text charts use the automatic `GITHUB_TOKEN` and need no extra secrets. No format requires a checkout or dependency installation. To pin a release, use its full commit SHA instead of `v1`.
 
 While this repository is private, it is available to private repositories in `milkstrawai` through [organization action sharing](https://docs.github.com/en/actions/how-tos/reuse-automations/share-with-your-organization). Public repositories can use it after this repository becomes public.
+
+## Optional text charts
+
+```text
+PR scribbles          220 changed lines · 5 files
+                   +180 hired ━━   −40 retired ╍╍
+─────────────────────────────────────────────────
+Segment            Files  Added  Deleted  Changed
+Tests                  2    +60      −10       70
+━━━━━━━━━━━━━━━━━━━╍╍╍
+Source                 3   +120      −30      150
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╍╍╍╍╍╍╍╍╍╍
+─────────────────────────────────────────────────
+Parents include the kids. Each file counted once.
+Changed = added + deleted. Math: still serious.
+```
+
+```yaml
+- uses: milkstrawai/pr-diff-stats@v1
+  with:
+    format: text-chart
+```
+
+Text charts show the image report's layout in a code block. Long group names are shortened, and wide characters, such as CJK or emoji, can shift the columns.
 
 ## Optional image reports
 
@@ -54,7 +78,7 @@ Image reports use a PAT to upload the SVG as a GitHub attachment. See the short 
 
 | Input         | Default    | Purpose                                          |
 | :------------ | :--------- | :----------------------------------------------- |
-| `format`      | `markdown` | Choose `markdown` or `image`                     |
+| `format`      | `markdown` | Choose `markdown`, `text-chart`, or `image`      |
 | `image-token` | Empty      | PAT for image uploads; required only for `image` |
 | `config`      | Empty      | Optional JSON group file in the PR base commit   |
 

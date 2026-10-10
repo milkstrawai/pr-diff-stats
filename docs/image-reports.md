@@ -1,6 +1,6 @@
 # Image reports
 
-The action renders an illustrated SVG in Node, embeds its font, and uploads it as a GitHub.com attachment. Custom groups work with both report formats.
+The action renders an illustrated SVG in Node, embeds its font, and uploads it as a GitHub.com attachment. Custom groups work with every report format.
 
 ## PAT setup
 
