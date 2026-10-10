@@ -37,8 +37,6 @@ jobs:
 
 Markdown reports and text charts use the automatic `GITHUB_TOKEN` and need no extra secrets. No format requires a checkout or dependency installation. To pin a release, use its full commit SHA instead of `v1`.
 
-While this repository is private, it is available to private repositories in `milkstrawai` through [organization action sharing](https://docs.github.com/en/actions/how-tos/reuse-automations/share-with-your-organization). Public repositories can use it after this repository becomes public.
-
 ## Optional text charts
 
 ```text
