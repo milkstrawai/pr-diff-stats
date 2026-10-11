@@ -4,8 +4,8 @@ One comment showing a pull request's changed files and lines, updated after each
 
 | Group     | Files |    Added | Deleted | Changed |
 | :-------- | ----: | -------: | ------: | ------: |
-| Source    |     3 |     +120 |     -30 |     150 |
 | Tests     |     2 |      +60 |     -10 |      70 |
+| Source    |     3 |     +120 |     -30 |     150 |
 | **Total** | **5** | **+180** | **-40** | **220** |
 
 ## Use
