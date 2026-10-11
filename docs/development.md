@@ -6,7 +6,10 @@ Use Node 24. The action and tests have no npm dependencies.
 mise ci
 # Or, with Node 24 installed:
 npm test
+npm run format:check
 ```
+
+`npm run format` fixes formatting. Both scripts run a pinned oxfmt through `npx`.
 
 | Path                   | Purpose                                                          |
 | :--------------------- | :--------------------------------------------------------------- |
