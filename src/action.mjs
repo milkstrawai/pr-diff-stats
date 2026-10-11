@@ -29,7 +29,7 @@ export async function updateComment({ github, context, core, config = '', format
     )
   }
 
-  const groups = await loadGroups({ github, repo: context.repo, ref: pr.base.sha, config })
+  const groups = await loadGroups({ github, repo: context.repo, config })
   const summary = summarize(files, groups)
   const comment = comments.find((item) => item.user?.login === 'github-actions[bot]' && item.body?.startsWith(marker))
   let body
@@ -56,15 +56,15 @@ export async function updateComment({ github, context, core, config = '', format
   }
 }
 
-async function loadGroups({ github, repo, ref, config }) {
+async function loadGroups({ github, repo, config }) {
   if (!config) return defaults
 
   let data
   try {
-    data = (await github.rest.repos.getContent({ ...repo, path: config, ref })).data
+    data = (await github.rest.repos.getContent({ ...repo, path: config })).data
   } catch (error) {
     if (error.status !== 404) throw error
-    throw new Error(`Cannot read ${config} at the PR base commit. Merge the configuration before enabling it.`, {
+    throw new Error(`Cannot read ${config} on the default branch. Merge the configuration before enabling it.`, {
       cause: error,
     })
   }

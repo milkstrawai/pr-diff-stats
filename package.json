@@ -4,7 +4,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "format": "npx --yes oxfmt@0.72.0 .",
+    "format:check": "npm run format -- --check"
   },
   "engines": {
     "node": ">=24"

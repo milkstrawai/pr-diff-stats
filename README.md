@@ -4,8 +4,8 @@ One comment showing a pull request's changed files and lines, updated after each
 
 | Group     | Files |    Added | Deleted | Changed |
 | :-------- | ----: | -------: | ------: | ------: |
-| Source    |     3 |     +120 |     -30 |     150 |
 | Tests     |     2 |      +60 |     -10 |      70 |
+| Source    |     3 |     +120 |     -30 |     150 |
 | **Total** | **5** | **+180** | **-40** | **220** |
 
 ## Use
@@ -78,7 +78,7 @@ Image reports use a PAT to upload the SVG as a GitHub attachment. See the short 
 | :------------ | :--------- | :----------------------------------------------- |
 | `format`      | `markdown` | Choose `markdown`, `text-chart`, or `image`      |
 | `image-token` | Empty      | PAT for image uploads; required only for `image` |
-| `config`      | Empty      | Optional JSON group file in the PR base commit   |
+| `config`      | Empty      | Optional JSON group file on the default branch   |
 
 ## Default groups
 
@@ -112,7 +112,7 @@ The optional `config` input replaces the defaults with your JSON groups. Nested 
 - Changed lines = additions + deletions. Every file counts once in the total.
 - Parent rows include their children. Empty groups are hidden; binary changes and pure renames still count as files.
 - Unchanged reports and stale runs are skipped. PR descriptions are never edited.
-- Only GitHub file metadata and JSON configuration from the PR base commit are read. PR code is never checked out or executed.
+- Only GitHub file metadata and JSON configuration from the default branch are read. PR code is never checked out or executed.
 - GitHub returns at most [3,000 changed files](https://docs.github.com/en/rest/pulls/pulls#list-pull-requests-files). Larger or incomplete results fail without replacing the previous comment.
 
 ## Development

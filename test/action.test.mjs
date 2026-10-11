@@ -184,14 +184,10 @@ test('skips an unchanged report', async () => {
   assert.equal(github.rest.issues.updateComment.mock.callCount(), 0)
 })
 
-test('loads JSON configuration from the live PR base commit', async () => {
+test('loads JSON configuration from the default branch', async () => {
   await updateComment({ github, context, core, config: fixture.configPath })
   assert.deepEqual(github.rest.repos.getContent.mock.calls[0].arguments, [
-    {
-      ...context.repo,
-      path: fixture.configPath,
-      ref: pr.base.sha,
-    },
+    { ...context.repo, path: fixture.configPath },
   ])
   assert.equal(
     github.rest.issues.updateComment.mock.calls[0].arguments[0].body,
@@ -204,11 +200,11 @@ test('does not fetch configuration when using the defaults', async () => {
   assert.equal(github.rest.repos.getContent.mock.callCount(), 0)
 })
 
-test('fails clearly if the configuration is absent from the base commit', async () => {
+test('fails clearly if the configuration is absent from the default branch', async () => {
   github.rest.repos.getContent = mock.fn(async () => {
     throw Object.assign(new Error('Not Found'), { status: 404 })
   })
-  await assert.rejects(updateComment({ github, context, core, config: fixture.configPath }), /base commit/)
+  await assert.rejects(updateComment({ github, context, core, config: fixture.configPath }), /default branch/)
   assert.equal(github.rest.issues.updateComment.mock.callCount(), 0)
 })
 

@@ -8,3 +8,4 @@ run = "node --test test/*.test.mjs"
 [tasks.ci]
 description = "Run all action checks"
 depends = ["test"]
+run = "npm run format:check"

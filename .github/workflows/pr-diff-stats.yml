@@ -18,3 +18,5 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: milkstrawai/pr-diff-stats@v1
+        with:
+          format: text-chart
