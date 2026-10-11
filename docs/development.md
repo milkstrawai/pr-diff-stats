@@ -21,6 +21,18 @@ npm test
 
 ## Releases
 
-1. Run `mise ci` and wait for GitHub CI to pass on `main`.
-2. Create a version tag, such as `v1.0.1`, and a GitHub release with short notes.
-3. Move the `v1` tag to the tested commit for compatible updates. Keep version tags unchanged.
+1. On an up-to-date `main`, run `mise ci` and wait for GitHub CI to pass.
+2. Create an annotated version tag, such as `v1.2.1`, and a GitHub release with short notes:
+
+   ```sh
+   git tag -a v1.2.1 -m "Short summary"
+   git push origin v1.2.1
+   gh release create v1.2.1 --verify-tag --title "v1.2.1 — Short title" --notes-file /tmp/notes.md
+   ```
+
+3. Move the `v1` tag to the new version for compatible updates. Keep version tags unchanged; breaking changes get a new `v2`. Moving `v1` takes a force push, as in [GitHub's versioning guide](https://github.com/actions/toolkit/blob/main/docs/action-versioning.md).
+
+   ```sh
+   git tag -f -a v1 -m "PR diff stats v1.2.1" 'v1.2.1^{}'
+   git push --force origin refs/tags/v1
+   ```
